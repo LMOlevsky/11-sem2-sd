@@ -27,18 +27,16 @@ var makeCircle = function(e){
 
 var dvdCallback = function(e){
 
-    var speed = [-2, -1, 1, 2];
+    var velocity = [-1, 1];
     
-    var diffX = speed[Math.floor(Math.random() * 4)];
-    var diffY = speed[Math.floor(Math.random() * 4)];
+    var diffX = velocity[Math.floor(Math.random() * 2)] * Math.random() * 3;
+    var diffY = velocity[Math.floor(Math.random() * 2)] * Math.random() * 3;
     
     var c = makeCircle();
     var x = Number(c.getAttribute("cx"));
     var y = Number(c.getAttribute("cy"));
     
     var run = function(){
-	//clearCallback();
-	console.log(x);
 	if (x <= 0){
 	    diffX*= -1;
 	}
@@ -60,5 +58,4 @@ var dvdCallback = function(e){
 };
 
 clear.addEventListener("click", clearCallback);
-stop.addEventListener("click", stopCallback);
 svg.addEventListener("click", dvdCallback);
